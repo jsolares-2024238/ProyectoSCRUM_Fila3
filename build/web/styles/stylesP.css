@@ -1,0 +1,129 @@
+:root {
+    --azul-oscuro: #12185b;
+    --azul-claro: #4d97aa;
+    --crema: #e6e7e4;
+    --naranja: #f07c29;
+    --naranja-oscuro: #b85a1b;
+    --rojo: #a94438;
+    --blanco: #ffffff;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--azul-oscuro);
+    color: var(--crema);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    color: var(--naranja);
+    font-size: 2.5em;
+}
+
+header h2 {
+    color: var(--crema);
+    font-weight: normal;
+    margin-top: 10px;
+}
+
+main {
+    max-width: 900px;
+    margin: auto;
+    background-color: var(--azul-claro);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(230, 231, 228, 0.2);
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+section h3 {
+    color: var(--naranja-oscuro);
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--naranja-oscuro);
+    padding-bottom: 5px;
+}
+
+section p, section ol {
+    color: var(--crema);
+    font-size: 1.05em;
+    text-align: justify;
+}
+
+section ol {
+    padding-left: 20px;
+}
+
+section ol li {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    section h3 {
+        font-size: 1.3em;
+    }
+}
+
+.navbar {
+    background-color: var(--blanco);
+    padding: 15px 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    color: var(--azul-oscuro);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s, background-color 0.3s;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+.navbar ul li a:hover {
+    background-color: var(--rojo);
+    color: white;
+}

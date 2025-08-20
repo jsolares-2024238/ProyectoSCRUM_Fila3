@@ -1,0 +1,123 @@
+/* Contenedor principal */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f4f4f4;
+}
+
+/* Caja general (tarjeta partida en dos) */
+.register-card {
+    display: flex;
+    width: 800px;
+    max-width: 95%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    background: #fff;
+}
+
+/* Lado izquierdo (imagen/logo/usuario) */
+.register-left {
+    flex: 1;
+    background: linear-gradient(135deg, #f39c12, #f1c40f);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.register-left .icon-user {
+    width: 120px;
+    height: 120px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.register-left .icon-user img {
+    width: 70px;
+    height: 70px;
+}
+
+/* Lado derecho (formulario) */
+.register-right {
+    flex: 1.2;
+    padding: 40px;
+}
+
+.register-right h2 {
+    text-align: left;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.register-right .form-control {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.register-right .form-control:focus {
+    border-color: #f39c12;
+    box-shadow: 0 0 5px rgba(243, 156, 18, 0.4);
+}
+
+/* Botones más delicados */
+.register-right .btn {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: #f39c12;
+    color: white;
+}
+
+.btn-secondary {
+    background: #7f8c8d;
+    color: white;
+}
+
+.btn-warning {
+    background: #27ae60;
+    color: white;
+}
+
+.register-right .btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .register-card {
+        flex-direction: column;
+        width: 90%;
+    }
+    .register-left {
+        padding: 30px;
+    }
+    .register-right {
+        padding: 20px;
+    }
+}
