@@ -1,0 +1,130 @@
+:root {
+    --azul-oscuro: #12185b;
+    --azul-claro: #4d97aa;
+    --crema: #e6e7e4;
+    --naranja: #f07c29;
+    --naranja-oscuro: #b85a1b;
+    --rojo: #a94438;
+    --blanco: #ffffff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--azul-oscuro);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background-color: var(--azul-claro);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(198, 69, 5, 0.15);
+    text-align: center;
+    width: 350px;
+}
+
+.card {
+    border: none;
+    background-color: transparent;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+h3 {
+    margin-bottom: 10px;
+    color: var(--azul-oscuro);
+}
+
+img {
+    border-radius: 50%;
+    margin-bottom: 50px;
+    border: 3px solid #d9b890;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--azul-oscuro);
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #cf9a6b;
+    border-radius: 8px;
+    background-color: var(--crema);
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: var(--azul-claro);
+    outline: none;
+    background-color: #ffffff;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--azul-claro);
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--azul-oscuro);
+}
+
+.form-group {
+    position: relative;
+    width: 100%;
+    padding-right: 27px;
+    box-sizing: border-box;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 37px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--rojo);
+}
+
+.form-group label {
+    color: var(--azul-oscuro);
+}
+
+.form-group.text-center label {
+    font-weight: normal;
+    color: var(--azul-claro);
+}
+
+.form-group.text-center {
+    text-align: center;
+}
+
+.form-group.text-center h3,
+.form-group.text-center label {
+    display: block;
+    margin: 10px auto;
+}
+
+.form-group.text-center img {
+    display: block;
+    margin: 0 auto;
+}
