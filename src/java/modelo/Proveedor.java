@@ -11,11 +11,12 @@ public class Proveedor {
     private String direccion;
     private String email;
     private Double calificacionPromedio;
+    private Boolean estado;
 
     public Proveedor() {
     }
 
-    public Proveedor(int codigoProveedor, String nombreEmpresa, String descripcionServicios, String telefono, String direccion, String email, Double calificacionPromedio) {
+    public Proveedor(int codigoProveedor, String nombreEmpresa, String descripcionServicios, String telefono, String direccion, String email, Double calificacionPromedio, Boolean estado) {
         this.codigoProveedor = codigoProveedor;
         this.nombreEmpresa = nombreEmpresa;
         this.descripcionServicios = descripcionServicios;
@@ -23,6 +24,7 @@ public class Proveedor {
         this.direccion = direccion;
         this.email = email;
         this.calificacionPromedio = calificacionPromedio;
+        this.estado = estado;
     }
 
     public int getCodigoProveedor() {
@@ -80,4 +82,15 @@ public class Proveedor {
     public void setCalificacionPromedio(Double calificacionPromedio) {
         this.calificacionPromedio = calificacionPromedio;
     }
+
+    public Boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
+    }
+    
+    
+
 }

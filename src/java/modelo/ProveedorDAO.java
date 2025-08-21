@@ -36,6 +36,7 @@ public class ProveedorDAO {
                 pv.setDireccion(rs.getString(5));
                 pv.setEmail(rs.getString(6));
                 pv.setCalificacionPromedio(rs.getDouble(7));
+                pv.setEstado(rs.getBoolean(8));
                 listaProveedor.add(pv);
             }
         }catch(Exception e){
@@ -47,7 +48,7 @@ public class ProveedorDAO {
     
     //AGREGAR
     public int agregar(Proveedor prov){
-        String sql = "insert into Proveedor(nombreEmpresa, descripcionServicios, telefono, direccion, email, calificacionPromedio) values(?,?,?,?,?,?)";
+        String sql = "insert into Proveedor(nombreEmpresa, descripcionServicios, telefono, direccion, email, calificacionPromedio, estado) values(?,?,?,?,?,?,?)";
         try{
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
@@ -57,6 +58,7 @@ public class ProveedorDAO {
             ps.setString(4, prov.getDireccion());
             ps.setString(5, prov.getEmail());
             ps.setDouble(6, prov.getCalificacionPromedio());
+            ps.setBoolean(7, prov.getEstado());
             ps.executeUpdate();
         }catch(Exception e){
             e.printStackTrace();
@@ -80,6 +82,7 @@ public class ProveedorDAO {
                 prov.setDireccion(rs.getString(5));
                 prov.setEmail(rs.getString(6));
                 prov.setCalificacionPromedio(rs.getDouble(7));
+                prov.setEstado(rs.getBoolean(8));
             }
         }catch(Exception e){
             e.printStackTrace();
@@ -89,7 +92,7 @@ public class ProveedorDAO {
     
     //ACTUALIZAR
     public int actualizar(Proveedor prov){
-        String sql= "Update Proveedor set nombreEmpresa=?, descripcionServicios=?, telefono=?, direccion=?, email=?, calificacionPromedio=? where codigoProveedor = ?";
+        String sql= "Update Proveedor set nombreEmpresa=?, descripcionServicios=?, telefono=?, direccion=?, email=?, calificacionPromedio=?, estado=? where codigoProveedor = ?";
         try{
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
@@ -99,7 +102,8 @@ public class ProveedorDAO {
             ps.setString(4, prov.getDireccion());
             ps.setString(5, prov.getEmail());
             ps.setDouble(6, prov.getCalificacionPromedio());
-            ps.setInt(7, prov.getCodigoProveedor());
+            ps.setBoolean(7, prov.getEstado());
+            ps.setInt(8, prov.getCodigoProveedor());
             ps.executeUpdate();
         }catch(Exception e){
             e.printStackTrace();
