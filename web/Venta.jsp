@@ -1,16 +1,16 @@
 <%-- 
-    Document   : Compra
-    Created on : 16 ago 2025, 21:29:13
-    Author     : Jose Rodas
+    Document   : Venta
+    Created on : Aug 17, 2025, 3:44:38 PM
+    Author     : Diego Espinoza
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Compra</title>
+        <title>Venta</title>
         <link rel="stylesheet" href="styles/stylejsp.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
@@ -32,26 +32,30 @@
         <div class="d-flex">
             <div class="card col-sm-12">
                 <div class="card-body">
-                    <form action="Controlador?menu=Compra" method="POST">
+                    <form action="Controlador?menu=Venta" method="POST">
                         <div class="form-group">
-                            <label><strong>Total:</strong></label>
-                            <input type="text" value="${compra.getTotal()}" name="txtTotal" class="form-control">
+                            <label><strong> Comision:</strong></label>
+                            <input type="text" value="${venta.getComision()}" name="txtComision" class="form-control">
                         </div>
                         <div class="form-group">
                             <label><strong>Observaciones:</strong></label>
-                            <input type="text" value="${compra.getObservaciones()}" name="txtObservacionesCompras" class="form-control">
+                            <input type="text" value="${venta.getObservaciones()}" name="txtObservaciones" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label><strong>Fecha de la Compra:</strong></label>
-                            <input type="date" value="${compra.getFechaCompra()}" name="txtFechaCompra" class="form-control">
+                            <label><strong>FechaVenta</strong></label>
+                            <input type="date" value="${venta.getFechaVenta()}" name="txtFechaVenta" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label><strong>Estado:</strong></label>
-                            <input type="text" value="${compra.getEstado()}" name="txtEstadoCompra" class="form-control">
+                            <label><strong>Descuento</strong></label>
+                            <input type="text" value="${venta.getDescuento()}" name="txtDescuento" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label><strong>Código del Proveedor:</strong></label>
-                            <input type="text" value="${compra.getCodigoProveedor()}" name="txtCodigoProveedor" class="form-control">
+                            <label><strong>Estado</strong></label>
+                            <input type="text" value="${venta.getEstado()}" name="txtEstado" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label><strong>CodigoServicio</strong></label>
+                            <input type="text" value="${venta.getCodigoServicio()}" name="txtCodigoServicio" class="form-control">
                         </div>
                         <input type="submit" name="accion" value="Agregar" class="btn btn-info">
                         <input type="submit" name="accion" value="Actualizar" class="btn btn-success">
@@ -63,26 +67,28 @@
                     <thead>
                         <tr>
                         <th>CODIGO</th>
-                        <th>TOTAL</th>
+                        <th>COMISION</th>
                         <th>OBSERVACIONES</th>
-                        <th>FECHA</th>
+                        <th>FECHAVENTA</th>
+                        <th>DESCUENTO</th>
                         <th>ESTADO</th>
-                        <th>PROVEEDOR</th>
+                        <th>CODIGOSERVICIO</th>
                         <th>ACCIONES</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach var="compra" items="${compras}">
+                        <c:forEach var="v" items="${Ventas}">
                             <tr>
-                                <td>${compra.getCodigoCompra()}</td>
-                                <td>${compra.getTotal()}</td>
-                                <td>${compra.getObservaciones()}</td>
-                                <td>${compra.getFechaCompra()}</td>
-                                <td>${compra.getEstado()}</td>
-                                <td>${compra.getCodigoProveedor()}</td>
+                                <td>${v.getCodigoVenta()}</td>
+                                <td>${v.getComision()}</td>
+                                <td>${v.getObservaciones()}</td>
+                                <td>${v.getFechaVenta()}</td>
+                                <td>${v.getDescuento()}</td>
+                                <td>${v.getEstado()}</td>
+                                <td>${v.getCodigoServicio()}</td>
                                 <td>
-                                    <a class="btn btn-warning" href="Controlador?menu=Compra&accion=Editar&codigoCompra=${compra.getCodigoCompra()}">Editar</a>
-                                    <a class="btn btn-danger" href="Controlador?menu=Compra&accion=Eliminar&codigoCompra=${compra.getCodigoCompra()}"onclick="return confirm('¿Seguro que desea eliminar los datos de la compra?');">Eliminar</a>
+                                    <a class="btn btn-warning" href="Controlador?menu=Venta&accion=Editar&codigoVenta=${v.getCodigoVenta()}">Editar</a>
+                                    <a class="btn btn-danger" href="Controlador?menu=Venta&accion=Eliminar&codigoVenta=${v.getCodigoVenta()}"  onclick="return confirm('¿Seguro que desea eliminar esta venta?');">Eliminar</a>
                                 </td>
                             </tr>
                         </c:forEach>

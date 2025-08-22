@@ -1,38 +1,39 @@
 package modelo;
 
-import java.sql.Date;
+import java.util.Date;
 
-
-public class DetalleCompra {
-    private int codigoDetalleCompra;
+public class DetalleVenta {
+    private int codigoDetalleVenta;
     private String observaciones;
     private Date fechaServicio;
     private double precioUnitario;
     private int cantidad;
     private Boolean estado;
-    private int codigoCompra;
-    private int codigoProveedor;
+    private int codigoVenta;
+    private int codigoCliente;
+    
+    // Constructor vacío
+    public DetalleVenta() {}
 
-    public DetalleCompra() {
-    }
-
-    public DetalleCompra(int codigoDetalleCompra, String observaciones, Date fechaServicio, double precioUnitario, int cantidad, Boolean estado, int codigoCompra, int codigoProveedor) {
-        this.codigoDetalleCompra = codigoDetalleCompra;
+    public DetalleVenta(int codigoDetalleVenta, String observaciones, Date fechaServicio, double precioUnitario, int cantidad, Boolean estado, int codigoVenta, int codigoCliente) {
+        this.codigoDetalleVenta = codigoDetalleVenta;
         this.observaciones = observaciones;
         this.fechaServicio = fechaServicio;
         this.precioUnitario = precioUnitario;
         this.cantidad = cantidad;
         this.estado = estado;
-        this.codigoCompra = codigoCompra;
-        this.codigoProveedor = codigoProveedor;
+        this.codigoVenta = codigoVenta;
+        this.codigoCliente = codigoCliente;
+    }
+    
+    
+    // Getters y Setters
+    public int getCodigoDetalleVenta() {
+        return codigoDetalleVenta;
     }
 
-    public int getCodigoDetalleCompra() {
-        return codigoDetalleCompra;
-    }
-
-    public void setCodigoDetalleCompra(int codigoDetalleCompra) {
-        this.codigoDetalleCompra = codigoDetalleCompra;
+    public void setCodigoDetalleVenta(int codigoDetalleVenta) {
+        this.codigoDetalleVenta = codigoDetalleVenta;
     }
 
     public String getObservaciones() {
@@ -75,21 +76,20 @@ public class DetalleCompra {
         this.estado = estado;
     }
 
-    public int getCodigoCompra() {
-        return codigoCompra;
+    public int getCodigoVenta() {
+        return codigoVenta;
     }
 
-    public void setCodigoCompra(int codigoCompra) {
-        this.codigoCompra = codigoCompra;
+    public void setCodigoVenta(int codigoVenta) {
+        this.codigoVenta = codigoVenta;
     }
 
-    public int getCodigoProveedor() {
-        return codigoProveedor;
+    public int getCodigoCliente() {
+        return codigoCliente;
     }
 
-    public void setCodigoProveedor(int codigoProveedor) {
-        this.codigoProveedor = codigoProveedor;
+    public void setCodigoCliente(int codigoCliente) {
+        this.codigoCliente = codigoCliente;
     }
-    
     
 }

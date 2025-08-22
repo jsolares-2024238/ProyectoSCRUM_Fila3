@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Sistema de Viajes</title>
+    <title>Sistema de Viajes (Empleados)</title>
     <link rel="stylesheet" href="styles/stylep.css">
     <link rel="stylesheet" href="styles/stylejspdest.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
@@ -86,33 +86,14 @@
     </video>
     </div>
 
+    <!-- JS -->
+    <script>
+        function showInfo(id) {
+            document.querySelectorAll('.info-content').forEach(el => el.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
 
-        <!-- Pie de Página -->
-        <footer>
-            <!-- Redes sociales -->
-            <div class="footer-redes">
-                <hr>
-                <div class="redes">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-                <hr>
-            </div>
-
-            <!-- Información -->
-            <div class="footer-info">
-                <p class="empresa">© Aero Adventure F3</p>
-                <div class="links">
-                    <a href="#">Contacto</a>
-                    <a href="#">Fundación Kinal</a>
-                </div>
-            </div>
-        </footer>
-
-    <script src="scripts/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>

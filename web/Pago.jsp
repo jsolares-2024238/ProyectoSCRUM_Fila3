@@ -12,16 +12,25 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Pago</title>
         <link rel="stylesheet" href="styles/stylejsp.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
     </head>
     <body>
          <!-- Barra de navegación -->
         <nav class="navbar">
-            <a href="Controlador?menu=Principal" class="nav-btn">Inicio</a>
-            <a href="Controlador?menu=Principal" class="nav-btn">Entidades</a>
-            <span class="nav-title">Gestión de Estado de Pago</span>
+            <div class="nav-left">
+                <img src="img/logo.png" alt="Logo" class="nav-logo">
+                <a href="PrincipalEmpleado.jsp" class="nav-btn"><i class="fa-solid fa-house"></i>Inicio</a>
+                <a href="Entidades.jsp" class="nav-btn"><i class="fa-solid fa-file"></i>Entidades</a>
+            </div>
+
+            <div class="nav-right">
+                <a href="index.jsp" class="nav-btn"><i class="fa-solid fa-user"></i>Iniciar Sesion</a>
+                <span class="nav-title">Principal</span>
+            </div>
         </nav>
         <div class="d-flex">
-            <div class="card col-sm-4">
+            <div class="card col-sm-12">
                 <div class="card-body">
                     <form action="Controlador?menu=Pago" method="POST">
                         <div class="form-group">
@@ -34,7 +43,7 @@
                         </div>
                         <div class="form-group">
                             <label><strong>Fecha Pago:</strong></label>
-                            <input type="text" value="${pago.getFechaPago()}" name="txtFechaPago" class="form-control">
+                            <input type="date" value="${pago.getFechaPago()}" name="txtFechaPago" class="form-control">
                         </div>
                         <div class="form-group">
                             <label><strong>Observaciones</strong></label>
@@ -65,11 +74,11 @@
                     </form>
                 </div>
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-12">
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                        <th>CóDIGO</th>
+                        <th>CÓDIGO</th>
                         <th>MONTO</th>
                         <th>DATOS</th>
                         <th>FECHA PAGO</th>
@@ -79,10 +88,11 @@
                         <th>CÓDIGO VENTA</th>
                         <th>CÓDIGO MÉTODO PAGO</th>
                         <th>CÓDIGO ESTADO PAGO</th>
+                        <th>ACCIONES</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach var="pago" items="${pagos}">
+                        <c:forEach var="pago" items="${Pagos}">
                             <tr>
                                 <td>${pago.getCodigoPago()}</td>
                                 <td>${pago.getMonto()}</td>

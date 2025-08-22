@@ -1,8 +1,9 @@
 <%-- 
-    Document   : Proveedor
-    Created on : Aug 17, 2025, 3:44:38 PM
-    Author     : Diego Molina
+    Document   : Cliente
+    Created on : 19 ago 2025, 08:05:22
+    Author     : informatica
 --%>
+
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -10,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Proveedor</title>
+        <title>Cliente</title>
         <link rel="stylesheet" href="styles/stylejsp.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
@@ -32,34 +33,34 @@
         <div class="d-flex">
             <div class="card col-sm-12">
                 <div class="card-body">
-                    <form action="Controlador?menu=Proveedor" method="POST">
+                    <form action="Controlador?menu=Cliente" method="POST">
                         <div class="form-group">
-                            <label><strong>Nombre Empresa:</strong></label>
-                            <input type="text" value="${proveedor.getNombreEmpresa()}" name="txtNombreEmpresa" class="form-control">
+                            <label><strong>Nombre:</strong></label>
+                            <input type="text" value="${cliente.getNombre()}" name="txtNombre" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label><strong>Descripción de Servicios:</strong></label>
-                            <input type="text" value="${proveedor.getDescripcionServicios()}" name="txtDescripcion" class="form-control">
+                            <label><strong>Apellido:</strong></label>
+                            <input type="text" value="${cliente.getApellido()}" name="txtApellido" class="form-control">
                         </div>
                         <div class="form-group">
                             <label><strong>Teléfono:</strong></label>
-                            <input type="text" value="${proveedor.getTelefono()}" name="txtTelefono" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label><strong>Dirección:</strong></label>
-                            <input type="text" value="${proveedor.getDireccion()}" name="txtDireccion" class="form-control">
+                            <input type="text" value="${cliente.getTelefono()}" name="txtTelefono" class="form-control">
                         </div>
                         <div class="form-group">
                             <label><strong>Email:</strong></label>
-                            <input type="text" value="${proveedor.getEmail()}" name="txtEmail" class="form-control">
+                            <input type="text" value="${cliente.getEmail()}" name="txtEmail" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label><strong>Calificación Promedio:</strong></label>
-                            <input type="text" value="${proveedor.getCalificacionPromedio()}" name="txtCalificacion" class="form-control" >
+                            <label><strong>Direccion:</strong></label>
+                            <input type="text" value="${cliente.getDireccion()}" name="txtDireccion" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Fecha de Registro:</strong></label>
+                            <input type="Date" value="${cliente.getFechaRegistro()}" name="txtFechaRegistro" class="form-control">
                         </div>
                         <div class="form-group">
                             <label><strong>Estado:</strong></label>
-                            <input type="text" value="${proveedor.getEstado()}" name="txtCalificacion" class="form-control" >
+                            <input type="text" value="${cliente.getEstado()}" name="txtEstado" class="form-control" placeholder="1 para Activo, 0 para Inactivo">
                         </div>
                         <input type="submit" name="accion" value="Agregar" class="btn btn-info">
                         <input type="submit" name="accion" value="Actualizar" class="btn btn-success">
@@ -72,29 +73,29 @@
                         <tr>
                         <th>CODIGO</th>
                         <th>NOMBRE</th>
-                        <th>DESCRIPCION</th>
+                        <th>APELLIDO</th>
                         <th>TELEFONO</th>
-                        <th>DIRECCION</th>
                         <th>EMAIL</th>
-                        <th>CALIFICACION</th>
+                        <th>DIRECCION</th>
+                        <th>REGISTRO</th>
                         <th>ESTADO</th>
                         <th>ACCIONES</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach var="p" items="${Proveedores}">
+                        <c:forEach var="cl" items="${Clientes}">
                             <tr>
-                                <td>${p.getCodigoProveedor()}</td>
-                                <td>${p.getNombreEmpresa()}</td>
-                                <td>${p.getDescripcionServicios()}</td>
-                                <td>${p.getTelefono()}</td>
-                                <td>${p.getDireccion()}</td>
-                                <td>${p.getEmail()}</td>
-                                <td>${p.getCalificacionPromedio()}</td>
-                                <td>${p.getEstado()}</td>
+                                <td>${cl.getCodigoCliente()}</td>
+                                <td>${cl.getNombre()}</td>
+                                <td>${cl.getApellido()}</td>
+                                <td>${cl.getTelefono()}</td>
+                                <td>${cl.getEmail()}</td>
+                                <td>${cl.getDireccion()}</td>
+                                <td>${cl.getFechaRegistro()}</td>
+                                <td>${cl.getEstado()}</td>
                                 <td>
-                                    <a class="btn btn-warning" href="Controlador?menu=Proveedor&accion=Editar&codigoProveedor=${p.getCodigoProveedor()}">Editar</a>
-                                    <a class="btn btn-danger" href="Controlador?menu=Proveedor&accion=Eliminar&codigoProveedor=${p.getCodigoProveedor()}"  onclick="return confirm('¿Seguro que desea eliminar este proveedor?');">Eliminar</a>
+                                    <a class="btn btn-warning" href="Controlador?menu=Cliente&accion=Editar&codigoCliente=${cl.getCodigoCliente()}">Editar</a>
+                                    <a class="btn btn-danger" href="Controlador?menu=Cliente&accion=Eliminar&codigoCliente=${cl.getCodigoCliente()}"  onclick="return confirm('¿Seguro que desea eliminar este Cliente?');">Eliminar</a>
                                 </td>
                             </tr>
                         </c:forEach>
