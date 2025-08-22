@@ -1,16 +1,16 @@
 <%-- 
-    Document   : Compra
-    Created on : 16 ago 2025, 21:29:13
-    Author     : Jose Rodas
+    Document   : EstadoPago
+    Created on : 16 ago 2025, 13:21:54
+    Author     : Diego Sebastian
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Compra</title>
+        <title>Estado Pago</title>
         <link rel="stylesheet" href="styles/stylejsp.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
@@ -32,26 +32,22 @@
         <div class="d-flex">
             <div class="card col-sm-12">
                 <div class="card-body">
-                    <form action="Controlador?menu=Compra" method="POST">
+                    <form action="Controlador?menu=EstadoPago" method="POST">
                         <div class="form-group">
-                            <label><strong>Total:</strong></label>
-                            <input type="text" value="${compra.getTotal()}" name="txtTotal" class="form-control">
+                            <label><strong>Notificación Enviada:</strong></label>
+                            <input type="text" value="${estadoPago.getNotificacionEnviada()}" name="txtNotificacionEnviada" class="form-control">
                         </div>
                         <div class="form-group">
                             <label><strong>Observaciones:</strong></label>
-                            <input type="text" value="${compra.getObservaciones()}" name="txtObservacionesCompras" class="form-control">
+                            <input type="text" value="${estadoPago.getObservaciones()}" name="txtObservaciones" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label><strong>Fecha de la Compra:</strong></label>
-                            <input type="date" value="${compra.getFechaCompra()}" name="txtFechaCompra" class="form-control">
+                            <label><strong>Fecha Cambio:</strong></label>
+                            <input type="date" value="${estadoPago.getFechaCambio()}" name="txtFechaCambio" class="form-control">
                         </div>
                         <div class="form-group">
                             <label><strong>Estado:</strong></label>
-                            <input type="text" value="${compra.getEstado()}" name="txtEstadoCompra" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label><strong>Código del Proveedor:</strong></label>
-                            <input type="text" value="${compra.getCodigoProveedor()}" name="txtCodigoProveedor" class="form-control">
+                            <input type="text" value="${estadoPago.getEstado()}" name="txtEstado" class="form-control">
                         </div>
                         <input type="submit" name="accion" value="Agregar" class="btn btn-info">
                         <input type="submit" name="accion" value="Actualizar" class="btn btn-success">
@@ -63,26 +59,24 @@
                     <thead>
                         <tr>
                         <th>CODIGO</th>
-                        <th>TOTAL</th>
+                        <th>NOTIFICACIÓN</th>
                         <th>OBSERVACIONES</th>
                         <th>FECHA</th>
                         <th>ESTADO</th>
-                        <th>PROVEEDOR</th>
                         <th>ACCIONES</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach var="compra" items="${compras}">
+                        <c:forEach var="estadoPago" items="${estadoPagos}">
                             <tr>
-                                <td>${compra.getCodigoCompra()}</td>
-                                <td>${compra.getTotal()}</td>
-                                <td>${compra.getObservaciones()}</td>
-                                <td>${compra.getFechaCompra()}</td>
-                                <td>${compra.getEstado()}</td>
-                                <td>${compra.getCodigoProveedor()}</td>
+                                <td>${estadoPago.getCodigoEstadoPago()}</td>
+                                <td>${estadoPago.getNotificacionEnviada()}</td>
+                                <td>${estadoPago.getObservaciones()}</td>
+                                <td>${estadoPago.getFechaCambio()}</td>
+                                <td>${estadoPago.getEstado()}</td>
                                 <td>
-                                    <a class="btn btn-warning" href="Controlador?menu=Compra&accion=Editar&codigoCompra=${compra.getCodigoCompra()}">Editar</a>
-                                    <a class="btn btn-danger" href="Controlador?menu=Compra&accion=Eliminar&codigoCompra=${compra.getCodigoCompra()}"onclick="return confirm('¿Seguro que desea eliminar los datos de la compra?');">Eliminar</a>
+                                    <a class="btn btn-warning" href="Controlador?menu=EstadoPago&accion=Editar&codigoEstadoPago=${estadoPago.getCodigoEstadoPago()}">Editar</a>
+                                    <a class="btn btn-danger" href="Controlador?menu=EstadoPago&accion=Eliminar&codigoEstadoPago=${estadoPago.getCodigoEstadoPago()}">Eliminar</a>
                                 </td>
                             </tr>
                         </c:forEach>
