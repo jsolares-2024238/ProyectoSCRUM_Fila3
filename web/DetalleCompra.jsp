@@ -17,7 +17,7 @@
          <!-- Barra de navegación -->
         <nav class="navbar">
             <a href="Controlador?menu=Principal" class="nav-btn">Inicio</a>
-            <a href="Controlador?menu=Entidades" class="nav-btn">Entidades</a>
+            <a href="Controlador?menu=Principal" class="nav-btn">Entidades</a>
             <span class="nav-title">Gestión de Detalles de las Compras</span>
         </nav>
         <div class="d-flex">
@@ -41,6 +41,10 @@
                             <input type="text" value="${detalleCompra.getCantidad()}" name="txtDetalleCantidad" class="form-control">
                         </div>
                         <div class="form-group">
+                            <label><strong>Estado:</strong></label>
+                            <input type="text" value="${detalleCompra.getEstado()}" name="txtDetalleEstadoCompra" class="form-control">
+                        </div>
+                        <div class="form-group">
                             <label><strong>Código Compra:</strong></label>
                             <input type="text" value="${detalleCompra.getCodigoCompra()}" name="txtDetCodigoCompra" class="form-control">
                         </div>
@@ -62,6 +66,7 @@
                         <th>FECHA</th>
                         <th>PRECIO</th>
                         <th>CANTIDAD</th>
+                        <th>ESTADO  </th>
                         <th>COMPRA</th>
                         <th>PROVEEDOR</th>
                         </tr>
@@ -74,6 +79,7 @@
                                 <td>${detalleCompra.getFechaServicio()}</td>
                                 <td>${detalleCompra.getPrecioUnitario()}</td>
                                 <td>${detalleCompra.getCantidad()}</td>
+                                <td>${detalleCompra.getEstado()}</td>
                                 <td>${detalleCompra.getCodigoCompra()}</td>
                                 <td>${detalleCompra.getCodigoProveedor()}</td>
                                 <td>

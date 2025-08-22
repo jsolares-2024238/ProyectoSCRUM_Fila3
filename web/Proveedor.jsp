@@ -49,6 +49,10 @@
                             <label><strong>Calificación Promedio:</strong></label>
                             <input type="text" value="${proveedor.getCalificacionPromedio()}" name="txtCalificacion" class="form-control" >
                         </div>
+                        <div class="form-group">
+                            <label><strong>Estado:</strong></label>
+                            <input type="text" value="${proveedor.getEstado()}" name="txtCalificacion" class="form-control" >
+                        </div>
                         <input type="submit" name="accion" value="Agregar" class="btn btn-info">
                         <input type="submit" name="accion" value="Actualizar" class="btn btn-success">
                     </form>
@@ -65,6 +69,7 @@
                         <th>DIRECCION</th>
                         <th>EMAIL</th>
                         <th>CALIFICACION</th>
+                        <th>ESTADO</th>
                         <th>ACCIONES</th>
                         </tr>
                     </thead>
@@ -78,6 +83,7 @@
                                 <td>${p.getDireccion()}</td>
                                 <td>${p.getEmail()}</td>
                                 <td>${p.getCalificacionPromedio()}</td>
+                                <td>${p.getEstado()}</td>
                                 <td>
                                     <a class="btn btn-warning" href="Controlador?menu=Proveedor&accion=Editar&codigoProveedor=${p.getCodigoProveedor()}">Editar</a>
                                     <a class="btn btn-danger" href="Controlador?menu=Proveedor&accion=Eliminar&codigoProveedor=${p.getCodigoProveedor()}"  onclick="return confirm('¿Seguro que desea eliminar este proveedor?');">Eliminar</a>

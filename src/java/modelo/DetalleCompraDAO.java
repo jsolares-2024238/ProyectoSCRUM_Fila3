@@ -32,8 +32,9 @@ public class DetalleCompraDAO {
                 detCom.setFechaServicio(rs.getDate(3));
                 detCom.setPrecioUnitario(rs.getDouble(4));
                 detCom.setCantidad(rs.getInt(5));
-                detCom.setCodigoCompra(rs.getInt(6));
-                detCom.setCodigoProveedor(rs.getInt(7));
+                detCom.setEstado(rs.getBoolean(6));
+                detCom.setCodigoCompra(rs.getInt(7));
+                detCom.setCodigoProveedor(rs.getInt(8));
                 listaDetalleCompra.add(detCom);
             }
         }catch(Exception e){
@@ -45,7 +46,7 @@ public class DetalleCompraDAO {
     
     //AGREGAR
     public int agregar(DetalleCompra detCom){
-        String sql = "insert into DetalleCompra (observaciones, fechaServicio, precioUnitario, cantidad, codigoCompra, codigoProveedor) values (?,?,?,?,?,?)";
+        String sql = "insert into DetalleCompra (observaciones, fechaServicio, precioUnitario, cantidad, estado, codigoCompra, codigoProveedor) values (?,?,?,?,?,?,?)";
         try{
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
@@ -53,8 +54,9 @@ public class DetalleCompraDAO {
             ps.setDate(2, detCom.getFechaServicio());
             ps.setDouble(3, detCom.getPrecioUnitario());
             ps.setInt(4, detCom.getCantidad());
-            ps.setInt(5, detCom.getCodigoCompra());
-            ps.setInt(6, detCom.getCodigoProveedor());
+            ps.setBoolean(5, detCom.getEstado());
+            ps.setInt(6, detCom.getCodigoCompra());
+            ps.setInt(7, detCom.getCodigoProveedor());
             ps.executeUpdate();
         }catch(Exception e){
             e.printStackTrace();
@@ -78,8 +80,9 @@ public class DetalleCompraDAO {
                 detCom.setFechaServicio(rs.getDate(3));
                 detCom.setPrecioUnitario(rs.getInt(4));
                 detCom.setCantidad(rs.getInt(5));
-                detCom.setCodigoCompra(rs.getInt(6));
-                detCom.setCodigoProveedor(rs.getInt(7));
+                detCom.setEstado(rs.getBoolean(6));
+                detCom.setCodigoCompra(rs.getInt(7));
+                detCom.setCodigoProveedor(rs.getInt(8));
             }
         }catch(Exception e){
             e.printStackTrace();
@@ -90,7 +93,7 @@ public class DetalleCompraDAO {
     
     //ACTUALIZAR
     public int actualizar (DetalleCompra detCom){
-        String sql = "Update DetalleCompra set observaciones = ?, fechaServicio = ?, precioUnitario = ?, cantidad = ? where codigoDetalleCompra = ?";
+        String sql = "Update DetalleCompra set observaciones = ?, fechaServicio = ?, precioUnitario = ?, cantidad = ?, estado = ? where codigoDetalleCompra = ?";
         try{
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
@@ -99,7 +102,8 @@ public class DetalleCompraDAO {
             ps.setDate(2, detCom.getFechaServicio());
             ps.setDouble(3, detCom.getPrecioUnitario());
             ps.setInt(4, detCom.getCantidad());
-            ps.setInt(5, detCom.getCodigoDetalleCompra());
+            ps.setBoolean(5, detCom.getEstado());
+            ps.setInt(6, detCom.getCodigoDetalleCompra());
             ps.executeUpdate();
         }catch(Exception e){
             e.printStackTrace();
