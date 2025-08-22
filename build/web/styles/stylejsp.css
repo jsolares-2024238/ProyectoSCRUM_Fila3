@@ -8,6 +8,10 @@
         background-size: cover;
         color: #2c3e50;
     }
+    
+    body, html {
+        overflow-x: hidden; 
+    }
 
     /* ===== Overlay para mejor visibilidad ===== */
     body::before {
@@ -16,22 +20,41 @@
         top: 0; left: 0;
         width: 100%; height: 100%;
         background: rgba(255, 255, 255, 0.7);
-        z-index: -1;
     }
 
-    /* Barra de navegación */
+        /* Barra de navegación */
     .navbar {
         width: 100%;
         background: #1abc9c;
         padding: 12px 20px;
         display: flex;
-        align-items: start;
-        justify-content: space-between;
+        align-items: center; /* centrado vertical */
         margin-bottom: 25px;
         box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-        text-decoration: none;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
+    /* Logo */
+    .nav-logo {
+        width: 80px;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+
+    /* Contenedor de la izquierda */
+    .nav-left {
+        display: flex;
+        align-items: center;
+    }
+
+    /* Contenedor de la derecha */
+    .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    /* Botones de navegación */
     .nav-btn {
         color: #fff;
         text-decoration: none;
@@ -41,8 +64,12 @@
         position: relative;
         transition: all 0.3s ease;
     }
+    
+    .nav-btn i{
+        margin-right: 8px;
+    }
 
-    /* Subrayado y brillo en hover */
+    /* Línea debajo al hacer hover */
     .nav-btn::after {
         content: "";
         position: absolute;
@@ -57,18 +84,23 @@
 
     .nav-btn:hover::after {
         width: 100%;
+        color: #fff;
         text-decoration: none;
     }
 
     .nav-btn:hover {
         text-shadow: 0 0 8px rgba(255,255,255,0.8);
+        color: #fff;
         text-decoration: none;
     }
 
+    /* Título de la página */
     .nav-title {
         color: #fff;
         font-weight: 600;
-        font-size: 1.2rem;
+        font-size: 1rem;
+        border-left: 1px solid rgba(255,255,255,0.5);
+        padding-left: 15px;
     }
 
 
@@ -77,13 +109,16 @@
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
-        padding: 30px;
+        padding: 20px;  /* ✅ mucho más razonable */
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
     }
 
     /* ===== Card del formulario ===== */
     .card {
         background: #ffffffcc;
-        border-radius: 15px;
+        border-radius: 25px;
         box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
         backdrop-filter: blur(5px);
         padding: 20px;
@@ -101,19 +136,38 @@
     label {
         font-weight: bold;
         color: #34495e;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
     }
 
     input[type="text"] {
         width: 100%;
-        padding: 8px;
+        padding: 16px;
         border: 1px solid #bdc3c7;
-        border-radius: 8px;
+        border-radius: 5px;
         outline: none;
         transition: 0.3s;
     }
 
     input[type="text"]:focus {
+        border-color: #1abc9c;
+        box-shadow: 0 0 8px rgba(26, 188, 156, 0.4);
+    }
+    
+    /* ===== Estilo para input de fecha ===== */
+    input[type="date"] {
+        width: 100%;
+        padding: 16px;
+        border: 1px solid #bdc3c7;
+        border-radius: 5px;
+        outline: none;
+        transition: 0.3s;
+        font-family: inherit;  /* para que use la misma tipografía */
+        font-size: 1rem;
+        color: #34495e;
+        background-color: #fff;
+    }
+
+    input[type="date"]:focus {
         border-color: #1abc9c;
         box-shadow: 0 0 8px rgba(26, 188, 156, 0.4);
     }
@@ -189,7 +243,7 @@
     }
 
     /* ===== Responsividad ===== */
-    @media (max-width: 768px) {
+    @media (max-width: 600px) {
         .d-flex {
             flex-direction: column;
         }

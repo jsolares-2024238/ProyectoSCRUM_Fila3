@@ -74,22 +74,34 @@ public class Validar extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String accion = request.getParameter("accion");
-        if(accion.equalsIgnoreCase("Ingresar")){
-            String user = request.getParameter("txtUser");
-            String pass = request.getParameter("txtPass");
-            usuario = usuarioDAO.validar(user, pass);
-            if(usuario.getNombreUsuario() != null){
-                request.setAttribute("usuario", usuario);
-                request.getRequestDispatcher("Controlador?menu=Principal").forward(request, response);
-            }else{
+        throws ServletException, IOException {
+
+    String accion = request.getParameter("accion");
+
+    if (accion.equalsIgnoreCase("Ingresar")) {
+        String user = request.getParameter("txtUser");
+        String pass = request.getParameter("txtPass");
+
+        Usuario usuario = usuarioDAO.validar(user, pass);
+
+        if (usuario != null && usuario.getNombreUsuario() != null) {
+            String rol = usuario.getRol();
+                if ("Empleado".equalsIgnoreCase(rol)) {
+                    request.getRequestDispatcher("PrincipalEmpleado.jsp").forward(request, response);
+                } else if ("Cliente".equalsIgnoreCase(rol)) {
+                    request.getRequestDispatcher("Principal.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("error", "Rol no reconocido: " + rol);
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                }
+            } else {
+                request.setAttribute("error", "Usuario o contraseña incorrectos");
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             }
-        }else{
-            request.getRequestDispatcher("index.jsp").forward(request, response);
-        }
+    } else {
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
+}
 
     /**
      * Returns a short description of the servlet.
